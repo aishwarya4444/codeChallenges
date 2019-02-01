@@ -1,4 +1,4 @@
 # ignore idea directory
-.idea/
-
+.idea
+a.out
 .DS_Store
