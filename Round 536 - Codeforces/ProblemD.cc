@@ -2,64 +2,45 @@
 
 #include<iostream>
 #include<vector>
+#include<map>
+#include<set>
+#include<queue>
 using namespace std;
 
-int g[100001][100001];
+map<int, set<int> > g;
+vector<int> result;
+vector<bool> visited;
+priority_queue<int, vector<int>, greater<int> > q;
 
-void init_g(int n) {
-  int r, c;
-  for(r=0;r<=n;r++) {
-    for(c=0;c<=n;c++) {
-      g[r][c] = 0;
-    }
-  }
-}
-
-void solve(vector<int> path, vector<bool> &visited, int N, vector<int> &result) {
-  int i, lastVisitedNode = path[path.size()-1];
-  string a="", b="";
-  if(lastVisitedNode == N) {
-    if(result.size() == 0) {
-      result = path;
-      return;
-    }
-    for(i=0;i<N;i++) {
-      a += to_string(path[i]);
-      b += to_string(result[i]);
-    }cout<<a<<endl<<b<<endl;
-    if(a<b) {
-      result = path;
-    }
-    return;
-  }cout<<endl;
-  for(i=1;i<=N;i++) {
-    if(g[lastVisitedNode][i] && !visited[i]) {
-      visited[i] = true;
-      path.push_back(i);
-      solve(path, visited, N, result);
-      path.pop_back();
-      visited[i] = false;
+void dfs() {
+  int node = 1;
+  set<int>::iterator it;
+  q.push(node);
+  visited[node] = true;
+  while(q.size()) {
+    node = q.top();
+    result.push_back(node);
+    q.pop();
+    for(it=g[node].begin(); it!=g[node].end(); it++) {
+      if(!visited[*it]) {
+        q.push(*it);
+        visited[*it] = true;
+      }
     }
   }
 }
 
 int main(void ) {
-  int r, c, n, m, i;
-  vector<int> path, result;
-  vector<bool> visited(n+1, false);
+  int u, v, n, m, i;
   cin>>n>>m;
-  init_g(n);
   for(i=0;i<m;i++) {
-    cin>>r>>c;
-    if(r!=c) {
-      g[r][c] = 1;
-      g[c][r] = 1;
-    }
+    cin>>u>>v;
+    g[u].insert(v);
+    g[v].insert(u);
   }
-  path.push_back(1);
-  visited[1] = true;cout<<endl;
-  solve(path, visited, n, result);
-  for(i=0;i<result.size();i++) {
+  visited.resize(n+1, false);
+  dfs();
+  for(i=0; i<n; i++) {
     cout<<result[i]<<' ';
   }
   cout<<endl;
