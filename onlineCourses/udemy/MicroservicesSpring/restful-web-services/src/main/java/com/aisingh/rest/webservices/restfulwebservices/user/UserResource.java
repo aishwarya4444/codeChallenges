@@ -25,7 +25,7 @@ public class UserResource {
     if(user==null) {
       throw new UserNotFoundException("id-"+id);
     }
-    return service.findOne(id);
+    return user;
   }
 
 //  @PostMapping("/users")
@@ -44,5 +44,13 @@ public class UserResource {
       .toUri();
 
     return ResponseEntity.created(location).build();
+  }
+
+  @DeleteMapping("/users/{id}")
+  public void deleteUser(@PathVariable int id) {
+    User user = service.deleteUser(id);
+    if(user==null) {
+      throw new UserNotFoundException("id-"+id);
+    }
   }
 }
