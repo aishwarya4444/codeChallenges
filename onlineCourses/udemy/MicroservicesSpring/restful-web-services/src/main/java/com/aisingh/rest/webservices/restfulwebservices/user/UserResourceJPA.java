@@ -19,9 +19,6 @@ import java.util.Optional;
 public class UserResourceJPA {
 
   @Autowired
-  private UserDaoService service;
-
-  @Autowired
   private UserRepository userRepository;
 
   @GetMapping("/jpa/users")
@@ -48,7 +45,7 @@ public class UserResourceJPA {
 
   @PostMapping("/jpa/users")
   public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
-    User createdUser = service.save(user);
+    User createdUser = userRepository.save(user);
 
     URI location = ServletUriComponentsBuilder
       .fromCurrentRequest()
@@ -61,9 +58,6 @@ public class UserResourceJPA {
 
   @DeleteMapping("/jpa/users/{id}")
   public void deleteUser(@PathVariable int id) {
-    User user = service.deleteUser(id);
-    if(user==null) {
-      throw new UserNotFoundException("id-"+id);
-    }
+    userRepository.deleteById(id);
   }
 }
