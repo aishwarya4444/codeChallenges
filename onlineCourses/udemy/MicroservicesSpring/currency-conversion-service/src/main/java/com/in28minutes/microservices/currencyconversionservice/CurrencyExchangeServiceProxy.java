@@ -1,11 +1,13 @@
 package com.in28minutes.microservices.currencyconversionservice;
 
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-// name is for named-server
-@FeignClient(name="currency-exchange-service", url="localhost:8000")
+// as ribbon is used, we don't need URL in feign
+@FeignClient(name="currency-exchange-service")
+@RibbonClient(name="currency-exchange-service")
 public interface CurrencyExchangeServiceProxy {
 
   @GetMapping("/currency-exchange/from/{from}/to/{to}")
