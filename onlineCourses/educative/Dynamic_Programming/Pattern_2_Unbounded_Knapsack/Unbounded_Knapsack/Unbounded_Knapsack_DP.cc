@@ -9,16 +9,19 @@ int calculateProfit(vector<int> &W, vector<int> &P, int C) {
   for(i=0; i<W.size(); i++) {
     dp[i][0] = 0;
   }
-  for(i=0; i<W.size(); i++) {
+  for(c=1; c<=C; c++) {
+    if(c>=W[0]) {
+      dp[0][c] = P[0];
+    }
+  }
+  for(i=1; i<W.size(); i++) {
     for(c=1; c<=C; c++) {
       profit1 = 0;
       profit2 = 0;
       if(c-W[i] >= 0) {
         profit1 = P[i] + dp[i][c-W[i]];
       }
-      if(i>0) {
-        profit2 = dp[i-1][c];
-      }
+      profit2 = dp[i-1][c];
       dp[i][c] = max(profit1, profit2);
     }
   }

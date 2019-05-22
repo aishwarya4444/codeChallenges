@@ -10,7 +10,9 @@ int calculateProfit(vector<int> &W, vector<int> &P, int C) {
     dp[i][0] = 0;
   }
   for(c=1; c<=C; c++) {
-    dp[0][c] = 1;
+    if(c>=W[0]) {
+      dp[0][c] = P[0];
+    }
   }
   for(i=1; i<W.size(); i++) {
     for(c=1; c<=C; c++) {
