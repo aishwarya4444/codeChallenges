@@ -2,3 +2,6 @@
 .idea
 a.out
 .DS_Store
+.metadata
+target/
+test/
