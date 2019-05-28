@@ -11,9 +11,6 @@ public class Main {
 		System.out.println(square.computeArea());
 		
 		useRectangle(rectangle);
-		
-		useRectangle(square);
-
 	}
 
 	private static void useRectangle(Rectangle rectangle) {
