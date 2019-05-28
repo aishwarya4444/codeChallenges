@@ -12,6 +12,8 @@ public interface PersistenceService<T extends Entity> {
 	public void delete(T entity);
 	
 	public T findById(Long id);
-	
-	public List<T> findByName(String name);
+
+//	if a method will not be used by all classes
+//	that implement interface .. then remove that method
+//	public List<T> findByName(String name);
 }
