@@ -1,1 +1,1 @@
-{"msg":"This is a message again","timestamp":{"year":2019,"nano":606000000,"month":"MAY","dayOfWeek":"TUESDAY","hour":13,"monthValue":5,"dayOfMonth":28,"dayOfYear":148,"minute":31,"second":27,"chronology":{"id":"ISO","calendarType":"iso8601"}}}
+{"msg":"This is a new message","timestamp":{"year":2019,"nano":212000000,"month":"MAY","dayOfWeek":"TUESDAY","hour":14,"monthValue":5,"dayOfMonth":28,"dayOfYear":148,"minute":0,"second":8,"chronology":{"id":"ISO","calendarType":"iso8601"}}}
