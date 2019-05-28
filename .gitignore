@@ -5,3 +5,9 @@ a.out
 .metadata
 target/
 test/
+*.iml
+.classpath
+.project
+.vscode
+.settings
+
