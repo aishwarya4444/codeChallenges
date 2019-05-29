@@ -2,7 +2,9 @@ package com.cpc.dp.builder;
 
 import java.time.LocalDate;
 
-//Class used to construct the product
+//Entity class used to construct the product or DTO
+//think of it as entity which you get from
+//persistance layer and store in a database
 public class User {
 
 	private String firstName;

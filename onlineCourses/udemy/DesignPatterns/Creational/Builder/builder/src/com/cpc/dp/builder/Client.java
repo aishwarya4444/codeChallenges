@@ -6,7 +6,18 @@ import java.time.LocalDate;
 public class Client {
 
 	public static void main(String[] args) {
-		
+		User user = createUser();
+		UserDTOBuilder builder = new UserWebDTOBuilder();
+		UserDTO dto = directBuild(builder, user);
+		System.out.println(dto);
+	}
+
+	private static UserDTO directBuild(UserDTOBuilder builder, User user) {
+		return builder.withFirstName(user.getFirstName())
+			.withLastName(user.getLastName())
+			.withAddress(user.getAddress())
+			.withBirthday(user.getBirthday())
+			.build();
 	}
 	
 	/**
