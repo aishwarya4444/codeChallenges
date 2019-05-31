@@ -20,6 +20,13 @@ public class Client {
 		iodh = LazyRegistryIODH.getInstance();
 		iodh = LazyRegistryIODH.getInstance();
 		iodh = LazyRegistryIODH.getInstance();
+		
+		// Enum Singleton
+		RegistryEnum.INSTANCE.setCount(1);
+		RegistryEnum.INSTANCE.doProcess();
+		RegistryEnum.INSTANCE.setCount(2);
+		RegistryEnum.INSTANCE.doProcess();
+		RegistryEnum.INSTANCE.doProcess();
 	}
 
 }
