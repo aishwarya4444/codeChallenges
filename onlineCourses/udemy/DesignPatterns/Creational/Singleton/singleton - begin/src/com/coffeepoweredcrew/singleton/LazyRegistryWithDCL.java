@@ -9,5 +9,22 @@ package com.coffeepoweredcrew.singleton;
  */
 public class LazyRegistryWithDCL {
 
+  private LazyRegistryWithDCL() {
+    // no-op
+  }
+
+  private static volatile LazyRegistryWithDCL INSTANCE;
+
+  private static LazyRegistryWithDCL getInstance() {
+    if(instance==NULL) {
+      synchronized (LazyRegistryWithDCL.class) {
+        if(instance==NULL) {
+          INSTANCE = new LazyRegistryWithDCL();
+        }
+      }
+    }
+    return INSTANCE;
+  }
+
  
 }
