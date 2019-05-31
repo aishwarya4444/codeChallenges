@@ -15,10 +15,10 @@ public class LazyRegistryWithDCL {
 
   private static volatile LazyRegistryWithDCL INSTANCE;
 
-  private static LazyRegistryWithDCL getInstance() {
-    if(instance==NULL) {
+  public static LazyRegistryWithDCL getInstance() {
+    if(INSTANCE==null) {
       synchronized (LazyRegistryWithDCL.class) {
-        if(instance==NULL) {
+        if(INSTANCE==null) {
           INSTANCE = new LazyRegistryWithDCL();
         }
       }
