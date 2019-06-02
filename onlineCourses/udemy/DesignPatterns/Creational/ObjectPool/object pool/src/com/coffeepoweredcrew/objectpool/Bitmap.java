@@ -27,4 +27,10 @@ public class Bitmap implements Image {
         this.location = location;
     }
 
+	@Override
+	public void reset() {
+		location = null;
+		System.out.println("Bitmap is reset.");
+	}
+
 }

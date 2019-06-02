@@ -2,7 +2,7 @@ package com.coffeepoweredcrew.objectpool;
 
 import javafx.geometry.Point2D;
 //Represents our abstract reusable
-public interface Image{
+public interface Image extends Poolable{
 
     void draw();
 
