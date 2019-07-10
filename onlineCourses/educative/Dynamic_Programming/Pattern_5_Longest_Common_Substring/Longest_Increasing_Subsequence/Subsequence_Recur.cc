@@ -4,8 +4,20 @@
 #include<vector>
 using namespace std;
 
+int solve(vector<int> &v, int curr, int prev) {
+  if(curr == v.size()) {
+    return 0;
+  }
+  int c1=0, c2=0;
+  if(prev<0 || v[curr]>v[prev]) {
+    c1 = 1+solve(v, curr+1, curr);
+  }
+  c2 = solve(v, curr+1, prev);
+  return max(c1, c2);
+}
+
 void lis(vector<int> &v) {
-  cout<<solve(v, 1, 0)<<'\n';
+  cout<<solve(v, 0, -1)<<'\n';
 }
 
 int main(void) {
