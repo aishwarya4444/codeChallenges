@@ -9,7 +9,7 @@ int targetSum(vector<int> &num, int sum) {
   for(i=0; i<N; i++) {
     sum += num[i];
   }
-  if(sum&2) {
+  if(sum%2) {
     return 0;
   }
 
