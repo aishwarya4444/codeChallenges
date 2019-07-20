@@ -9,7 +9,7 @@ bool isPossible(vector<int> &num, int sum) {
   bool dp[N][sum+1];
 
   for(i=0; i<N; i++) {
-    dp[0][i] = true;
+    dp[i][0] = true;
   }
 
   for(s=1; s<=sum; s++) {
