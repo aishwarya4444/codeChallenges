@@ -17,6 +17,19 @@ int minJumps(vector<int> &J) {
   return dp[N-1];
 }
 
+int minJumps2(vector<int> &J) {
+  int i, j, N=J.size();
+  vector<int> dp(N, INT_MAX);
+  dp[0] = 0;
+  for(i=1; i<N; i++) {
+    for(j=0; j<i; j++) {
+      if(j+J[j]>=i && J[j]!=INT_MAX)
+      dp[i] = min(dp[j]+1, dp[i]);
+    }
+  }
+  return dp[N-1];
+}
+
 int main(void ) {
   vector<int> jumps;
 
@@ -28,6 +41,7 @@ int main(void ) {
   jumps.push_back(4);
 
   cout<<minJumps(jumps)<<'\n';
+  cout<<minJumps2(jumps)<<'\n';
 
   // jumps
   jumps.clear();
@@ -42,5 +56,6 @@ int main(void ) {
   jumps.push_back(3);
 
   cout<<minJumps(jumps)<<'\n';
+  cout<<minJumps2(jumps)<<'\n';
   return 0;
 }
