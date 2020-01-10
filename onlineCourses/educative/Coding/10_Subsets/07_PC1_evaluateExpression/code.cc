@@ -14,11 +14,13 @@ class EvaluateExpression {
     // TODO: Write your code here
     vector<int> leftParts, rightParts;
     int i;
+
+    if(input.find('+')==string::npos && input.find('-')==string::npos && input.find('*')==string::npos) {
+      result.push_back(stoi(input));
+      return result;
+    }
+    
     for(i=0; i<input.size(); i++) {
-      if(input.find('+')==string::npos && input.find('-')==string::npos && input.find('*')==string::npos) {
-        result.push_back(stoi(input));
-        return result;
-      }
       if(input[i]>=48 && input[i]<=57) {
         continue;
       }
