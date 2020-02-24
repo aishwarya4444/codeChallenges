@@ -1,0 +1,132 @@
+<html>
+
+<body>
+<canvas id="myCanvas" width="1000" height="1000"></canvas>
+
+<script>
+
+    function line(context, p1,p2) {
+
+        context.beginPath();
+
+        context.moveTo(p1.x, p1.y);
+
+        context.lineTo(p2.x, p2.y);
+
+        context.stroke();
+
+    }
+
+    function project(threep) {
+        var x=threep.x, y=threep.y, z=threep.z, newX, newY, width, height;
+
+        width = ctx.canvas.width;
+        height = ctx.canvas.height;
+
+        newX = x * LEN/z + width/2;
+        newY = y * LEN/z + height/2;
+
+        return {x:newX, y:newY};
+
+// return 2dp
+
+    }
+
+    function rotate(threep, xdegree, ydegree, zdegree) {
+
+// return 3dp
+
+    }
+
+    var LEN=200;
+
+    var vertices = [];
+
+    var edges = {
+        0: [1,3,4],
+        2: [1,3,6],
+        5: [1,4,6],
+        7: [3,4,6]
+    };
+
+    var canvas = document.getElementById("myCanvas");
+
+    var ctx = canvas.getContext("2d");
+
+    var oldTime=0, newTime=0;
+    var oldPoint, newPoint;
+
+    populateVertices();
+    printCube();
+
+    canvas.addEventListener('mousemove', event => {
+        var alpha;
+
+        if(newTime === 0) {
+            newTime = event.timeStamp;
+            newPoint = {x:event.x, y:event.y};
+        }
+
+        oldTime = newTime;
+        newTime = event.timeStamp;
+
+        oldPoint = newPoint;
+        newPoint = {x:event.x, y:event.y};
+
+        alpha = Math.atan2((newPoint.y-oldPoint.y), (newPoint.x-oldPoint.x));
+
+        updateVertices(alpha);
+        printCube();
+
+        console.log(event.x+' '+event.y+' '+oldTime+' '+newTime);
+    });
+
+    function populateVertices() {
+        var x=0, y=0, z=300;
+        vertices = [
+            {x: x-LEN/2, y:y+LEN/2, z:z+LEN/2},
+            {x: x-LEN/2, y:y-LEN/2, z:z+LEN/2},
+            {x: x+LEN/2, y:y-LEN/2, z:z+LEN/2},
+            {x: x+LEN/2, y:y+LEN/2, z:z+LEN/2},
+            {x: x-LEN/2, y:y+LEN/2, z:z-LEN/2},
+            {x: x-LEN/2, y:y-LEN/2, z:z-LEN/2},
+            {x: x+LEN/2, y:y-LEN/2, z:z-LEN/2},
+            {x: x+LEN/2, y:y+LEN/2, z:z-LEN/2}
+        ];
+    }
+
+    function printCube() {
+        var twoP1, twoP2;
+
+        // ctx.fillStyle = "#ffffff";
+        // ctx.fillRect(0, 0, 1000, 1000);
+        // ctx.fillStyle = "#0080f0";
+
+        for(var p1 in edges) {
+            twoP1 = project(vertices[p1]);
+            edges[p1].forEach(function(p2, index){
+                twoP2 = project(vertices[p2]);
+                line(ctx, {x:twoP1.x, y:twoP1.y},{x:twoP2.x, y:twoP2.y});
+            });
+        };
+    }
+
+    function updateVertices(alpha) {
+        var length, vertex, theta, i, V=vertices.length;
+
+        for(i=0; i<V; i++) {
+            vertex = vertices[i];
+            theta = Math.atan2(vertex.y, vertex.x);
+            alpha = alpha+theta;
+
+            vertex.x = vertex.x*Math.cos(alpha)/Math.cos(theta);
+            vertex.y = vertex.y*Math.sin(alpha)/Math.sin(theta);
+            // vertex.z = vertex.z*Math.sin(alpha)/Math.cos(theta);
+        }
+    }
+
+</script>
+
+</body>
+
+</html>

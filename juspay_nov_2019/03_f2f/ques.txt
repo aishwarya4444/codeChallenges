@@ -1,0 +1,5 @@
+About schooling, favourite subjects, who do I look up to?
+Trying to check if I can think in 3D.
+Checking OS fundamentals, page, stack.
+Say one audio file is running, and another process comes, how is the new process executed?
+Number of wires needed to connect 100 keys in keyboard (I said 100, then he nudged to thing in 2D, and then in 3D).
