@@ -14,7 +14,7 @@ class FirstKMissingPositive {
     unordered_set<int> extra;
     int i=0, j;
     while(i<nums.size()) {
-      j = nums[i]-1;
+      j = nums[i]<0 ? nums[i] : nums[i]-1;
       if(j>=0 && j<nums.size() && nums[i]!=nums[j]) {
         swap(nums[i], nums[j]);
       } else {

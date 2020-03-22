@@ -13,20 +13,16 @@ int coinChange(vector<int> &C, int amount) {
     dp[i][0] = 1;
   }
 
-  for(a=1; a<=amount; a++) {
-    if(a%C[0] == 0) {
-      dp[0][a] = 1;
-    }
-  }
-
-  for(i=1; i<C.size(); i++) {
+  for(i=0; i<C.size(); i++) {
     for(a=1; a<=amount; a++) {
       ways1 = 0;
       ways2 = 0;
       if(a>=C[i]) {
         ways1 = dp[i][a-C[i]];
       }
-      ways2 = dp[i-1][a];
+      if(i>0) {
+        ways2 = dp[i-1][a];
+      }
       dp[i][a] = ways1+ways2;
     }
   }
