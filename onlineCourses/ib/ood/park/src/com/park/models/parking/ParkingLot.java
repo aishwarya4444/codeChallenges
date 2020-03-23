@@ -1,4 +1,4 @@
-package com.park.parking;
+package com.park.models.parking;
 
 import java.util.List;
 

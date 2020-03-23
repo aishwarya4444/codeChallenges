@@ -1,6 +1,8 @@
-package com.park.vehicles;
+package com.park.models.vehicles;
 
-public abstract class Vehicle {
+import com.park.models.DBObject;
+
+public abstract class Vehicle extends DBObject {
   private String vehicleNumber;
   private String color;
   private final VehicleType type;
