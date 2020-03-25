@@ -1,4 +1,4 @@
-package com.park.models.parking;
+package com.park.models.parking.spots;
 
 public enum SpotType {
   COMPACT,

@@ -7,6 +7,12 @@ import com.park.models.electronics.EntrancePanel;
 public class GroundFloor extends Floor {
 
   private EntrancePanel entrancePanel;
-  private DisplayBoard displayBoard;
 
+  public EntrancePanel getEntrancePanel() {
+    return entrancePanel;
+  }
+
+  public void setEntrancePanel(EntrancePanel entrancePanel) {
+    this.entrancePanel = entrancePanel;
+  }
 }
