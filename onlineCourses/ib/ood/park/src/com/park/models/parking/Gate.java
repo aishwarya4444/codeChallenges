@@ -28,6 +28,11 @@ public abstract class Gate extends DBObject implements PaymentEnabled {
 
   }
 
+  @Override
+  public void processPayment() {
+
+  }
+
   public GateType getType() {
     return type;
   }

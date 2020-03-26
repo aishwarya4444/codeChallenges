@@ -1,19 +1,19 @@
 package com.park.models.accounts;
 
 import com.park.models.DBObject;
-import com.park.models.people.Person;
+import com.park.models.Person;
 
 public abstract class Account extends DBObject {
   private String userName;
   private String saltedPasswordHash;
   private final Person person;
-  private AccountStatus accountStatus;
+  private AccountStatus status;
 
   public Account(String userName, String saltedPasswordHash, Person person) {
     this.userName = userName;
     this.saltedPasswordHash = saltedPasswordHash;
     this.person = person;
-    this.accountStatus = AccountStatus.ACTIVE;
+    this.status = AccountStatus.ACTIVE;
   }
 
   public String getUserName() {
@@ -36,11 +36,11 @@ public abstract class Account extends DBObject {
     return person;
   }
 
-  public AccountStatus getAccountStatus() {
-    return accountStatus;
+  public AccountStatus getStatus() {
+    return status;
   }
 
-  public void setAccountStatus(AccountStatus accountStatus) {
-    this.accountStatus = accountStatus;
+  public void setStatus(AccountStatus accountStatus) {
+    this.status = accountStatus;
   }
 }
