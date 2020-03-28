@@ -19,7 +19,7 @@ class MinimumDifference {
     while(l<=r) {
       m = l+(r-l)/2;
       if(arr[m]==key) {
-        return 0;
+        return arr[m];
       }
       if(key < arr[m]) {
         r = m-1;

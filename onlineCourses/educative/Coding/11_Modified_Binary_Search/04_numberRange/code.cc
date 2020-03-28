@@ -5,6 +5,8 @@ using namespace std;
 #include <iostream>
 #include <vector>
 
+// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+
 class FindRange {
  public:
   static pair<int, int> findRange(const vector<int> &arr, int key) {
@@ -45,6 +47,51 @@ class FindRange {
     return result;
   }
 };
+
+/*
+class Solution {
+    int lowerBound(vector<int> &nums, int target) {
+        int start = 0, last = nums.size()-1;
+        while(start != last) {
+            int mid = (start+last) >> 1;
+            if(nums[mid] >= target) {
+                last = mid;
+            }
+            else {
+                start = mid+1;
+            }
+        }
+        if(nums[start] != target)
+            return -1;
+        return start;
+    }
+
+    int upperBound(vector<int> &nums, int target) {
+        int start = 0, last = nums.size()-1;
+        while(start != last) {
+            int mid = (start + last + 1) >> 1;
+            if(nums[mid] > target) {
+                last = mid-1;
+            }
+            else {
+                start = mid;
+            }
+        }
+        if(nums[start] != target)
+            return -1;
+        return start;
+    }
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        if(nums.size() == 0) {
+            return vector<int> {-1,-1};
+        }
+        int lb = lowerBound(nums, target);
+        int ub = upperBound(nums, target);
+        return vector<int> {lb, ub};
+    }
+};
+*/
 
 int main(int argc, char *argv[]) {
   pair<int, int> result = FindRange::findRange(vector<int>{4, 6, 6, 6, 9}, 6);
