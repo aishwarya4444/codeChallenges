@@ -18,6 +18,8 @@ class Interval {
 
 // https://leetcode.com/problems/insert-interval/
 
+// O(N lg N) solution
+
 class InsertInterval {
  public:
   struct bigCompare {
