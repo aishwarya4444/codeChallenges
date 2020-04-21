@@ -9,6 +9,25 @@ class RemoveDuplicates {
  public:
   static int remove(vector<int>& arr) {
     // TODO: Write your code here
+    int l=0, r=0, N=arr.size();
+    while(r<N) {
+      if(arr[l] == arr[r]) {
+        r++;
+      } else {
+        arr[l+1] = arr[r];
+        l++;
+        r++;
+      }
+    }
+    return l+1;
+  }
+};
+
+/*
+class RemoveDuplicates {
+ public:
+  static int remove(vector<int>& arr) {
+    // TODO: Write your code here
     int l=1, r, N=arr.size();
     for(r=1; r<N; r++) {
       if(arr[l-1] != arr[r]) {
@@ -19,6 +38,7 @@ class RemoveDuplicates {
     return l;
   }
 };
+*/
 
 int main(int argc, char* argv[]) {
   vector<int> arr = {2, 3, 3, 3, 6, 9, 9};

@@ -8,8 +8,6 @@ using namespace std;
 // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
 
-// https://leetcode.com/articles/find-minimum-in-rotated-sorted-array-ii/
-
 class RotationCountOfRotatedArray {
  public:
   static int countRotations(const vector<int>& nums) {

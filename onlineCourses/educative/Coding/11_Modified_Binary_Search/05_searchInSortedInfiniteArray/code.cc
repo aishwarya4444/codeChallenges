@@ -6,6 +6,8 @@ using namespace std;
 #include <limits>
 #include <vector>
 
+// https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/
+
 class ArrayReader {
  public:
   vector<int> arr;
