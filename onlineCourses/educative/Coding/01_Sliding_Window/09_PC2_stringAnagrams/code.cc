@@ -29,7 +29,7 @@ class StringAnagrams {
           resultIndices.push_back(start);
         }
       }
-      if(end+1 >= P) {
+      if(end-start+1 == P) {
         if(freqMap.find(str[start]) != freqMap.end()) {
           if(freqMap[str[start]] == 0) {
             match--;

@@ -27,7 +27,7 @@ class StringPermutation {
           return true;
         }
       }
-      if(end+1 >= pattern.size()) {
+      if(end-start+1 == pattern.size()) {
         if(patternFreq.find(str[start]) != patternFreq.end()) {
           if(patternFreq[str[start]]==0) {
             match--;

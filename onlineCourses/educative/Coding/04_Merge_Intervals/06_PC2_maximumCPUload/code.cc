@@ -20,32 +20,38 @@ class Job {
   }
 };
 
+// similar to
+// https://leetcode.com/problems/car-pooling/
+
 class MaximumCPULoad {
  public:
   struct compareStart {
     bool operator()(const Job &j1, const Job &j2) {
-      return j1.start > j2.start;
+      return j1.start < j2.start;
+    }
+  };
+
+  struct compareEnd {
+    bool operator()(const Job &j1, const Job &j2) {
+      return j1.end > j2.end;
     }
   };
 
   static int findMaxCPULoad(vector<Job> &jobs) {
     int maxCPULoad = 0;
     // TODO: Write your code here
-    priority_queue<Job, vector<Job>, compareStart> minHeap;
-    int load, start, end;
-    for(auto job : jobs) {
-      minHeap.push(job);
-    }
-    while(minHeap.size()) {
-      auto job = minHeap.top();
-      minHeap.pop();
-      maxCPULoad = max(maxCPULoad, job.cpuLoad);
-      if(minHeap.size() && job.end>minHeap.top().start) {
-        job.end = max(job.end, minHeap.top().end);
-        job.cpuLoad = job.cpuLoad + minHeap.top().cpuLoad;
+    priority_queue<Job, vector<Job>, compareEnd> minHeap;
+    int load=0, start, end;
+
+    sort(jobs.begin(), jobs.end(), compareStart());
+    for(auto job: jobs) {
+      while(minHeap.size() && job.start>=minHeap.top().end) {
+        load -= minHeap.top().cpuLoad;
         minHeap.pop();
-        minHeap.push(job);
       }
+      load += job.cpuLoad;
+      maxCPULoad = max(maxCPULoad, load);
+      minHeap.push(job);
     }
     return maxCPULoad;
   }
