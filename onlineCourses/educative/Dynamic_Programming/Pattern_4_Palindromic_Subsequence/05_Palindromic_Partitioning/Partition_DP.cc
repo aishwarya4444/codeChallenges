@@ -4,6 +4,9 @@
 #include<cstring>
 using namespace std;
 
+// https://leetcode.com/problems/palindrome-partitioning/
+// https://leetcode.com/problems/palindrome-partitioning-ii/
+
 int partition(string &s) {
   int N=s.size(), l, r, count[N];
   bool dp[N][N];

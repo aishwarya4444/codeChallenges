@@ -4,6 +4,8 @@
 #include<cstring>
 using namespace std;
 
+// https://leetcode.com/problems/interleaving-string/
+
 bool help(string &a, string &b, string &ab, int i, int j) {
   if(i == a.size() && j == b.size()) {
     return true;

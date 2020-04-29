@@ -14,10 +14,10 @@ class FirstMissingPositive {
     int i=0, j;
     while(i<nums.size()) {
       // integer overflow case .. if value equals INT_MIN then don't subtract 1
-      j = nums[i]==INT_MIN ? nums[i] : nums[i]-1;
+      // j = nums[i]==INT_MIN ? nums[i] : nums[i]-1;
       // or use
-      // j = nums[i]<0 ? nums[i] : nums[i]-1;
-      if(nums[j]>=0 && nums[j]<nums.size() && nums[i]!=nums[j]) {
+      j = nums[i]<0 ? nums[i] : nums[i]-1;
+      if(j>=0 && j<nums.size() && nums[i]!=nums[j]) {
         swap(nums[i], nums[j]);
       } else {
         i++;

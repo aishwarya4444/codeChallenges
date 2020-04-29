@@ -4,6 +4,9 @@
 #include<cstring>
 using namespace std;
 
+// https://leetcode.com/problems/longest-duplicate-substring/
+// TLE .. they need N log N
+
 void repeating(string s) {
   int N=s.size(), i, j, length=0;
   int dp[N+1][N+1];

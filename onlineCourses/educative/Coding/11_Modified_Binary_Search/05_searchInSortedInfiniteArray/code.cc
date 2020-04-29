@@ -26,14 +26,10 @@ class SearchInfiniteSortedArray {
  public:
   static int search(ArrayReader *reader, int key) {
     // TODO: Write your code here
-    int start, l=0, m, r=0, value;
-    while(key > reader->get(r)) {
-      start = r+1;
-      r = (r-l+1)*2;
-      l = start;
-    }
-    if(reader->get(r) == numeric_limits<int>::max()) {
-        r = numeric_limits<int>::max();
+    int l=0, m, r=1, value;
+    while(target > reader.get(r)) {
+      l = r;
+      r <<= 1;
     }
     while(l<=r) {
       m = l + (r-l)/2;

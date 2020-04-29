@@ -32,9 +32,10 @@ class FrequencySort {
         c = maxHeap.top().first;
         n = maxHeap.top().second;
         maxHeap.pop();
-        while(n--) {
-          sortedString = sortedString + c;
-        }
+        //while(n--) {
+        //  sortedString = sortedString + c;
+        //}
+        sortedString += string(n, c);
       }
       return sortedString;
     }
