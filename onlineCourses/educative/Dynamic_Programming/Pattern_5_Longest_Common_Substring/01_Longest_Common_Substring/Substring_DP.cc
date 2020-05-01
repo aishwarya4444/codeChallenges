@@ -4,6 +4,8 @@
 #include<cstring>
 using namespace std;
 
+// https://leetcode.com/problems/maximum-length-of-repeated-subarray/
+
 int substring(string s1, string s2) {
   int N1=s1.size(), N2=s2.size(), i, j;
   int dp[N1+1][N2+1], length=0;

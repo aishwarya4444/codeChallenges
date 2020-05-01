@@ -4,6 +4,12 @@
 #include<vector>
 using namespace std;
 
+/*
+https://leetcode.com/problems/house-robber/
+https://leetcode.com/problems/house-robber-ii/
+https://leetcode.com/problems/house-robber-iii/
+*/
+
 int solve(vector<int> &house) {
   int N=house.size(), i;
   int dp[N+1];

@@ -4,6 +4,8 @@
 #include<vector>
 using namespace std;
 
+// https://leetcode.com/problems/longest-increasing-subsequence/
+
 void lis(vector<int> &v) {
   int N=v.size(), i, j, length=v.size()?1:0;
   vector<int> dp(N, 1);
