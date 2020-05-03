@@ -13,10 +13,10 @@ class FindCorruptNums {
     int i=0, j;
     while(i<nums.size()) {
       j = nums[i]-1;
-      if(nums[i]==nums[j]) {
-        i++;
-      } else {
+      if(j>=0 && j<nums.size() && nums[i]!=nums[j]) {
         swap(nums[i], nums[j]);
+      } else {
+        i++;
       }
     }
     for(i=0; i<nums.size(); i++) {
