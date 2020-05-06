@@ -11,7 +11,7 @@ int minFee(vector<int> &fee) {
   dp[1] = fee[0];
   dp[2] = fee[0];
 
-  for(int i=3; i<=fee.dize(); i++) {
+  for(int i=3; i<=fee.size(); i++) {
     dp[i] = min(fee[i-1]+dp[i-1], min(fee[i-2]+dp[i-2], fee[i-3]+dp[i-3]));
   }
 

@@ -15,8 +15,8 @@ int solve(vector<int> &house) {
   int dp[N+1];
   dp[0] = 0;
   dp[1] = house[0];
-  for(i=1; i<N; i++) {
-    dp[i+1] = max(dp[i], house[i]+dp[i-1]);
+  for(i=2; i<=N; i++) {
+    dp[i] = max(dp[i-1], house[i-2]+dp[i-1]);
   }
   return dp[N];
 }

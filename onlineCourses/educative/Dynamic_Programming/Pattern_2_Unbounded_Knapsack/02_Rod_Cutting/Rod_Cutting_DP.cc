@@ -13,20 +13,16 @@ int cutRod(vector<int> &L, vector<int> &P, int length) {
     dp[i][0] = 0;
   }
 
-  for(l=1; l<=length; l++) {
-    if(length>=L[0]) {
-      dp[0][l] = P[0];
-    }
-  }
-
-  for(i=1; i<L.size(); i++) {
+  for(i=0; i<L.size(); i++) {
     for(l=1; l<=length; l++) {
       profit1 = 0;
       profit2 = 0;
       if(l>=L[i]) {
         profit1 = P[i] + dp[i][l-L[i]];
       }
-      profit2 = dp[i-1][l];
+      if(i>0) {
+        profit2 = dp[i-1][l];
+      }
       dp[i][l] = max(profit2, profit1);
     }
   }
