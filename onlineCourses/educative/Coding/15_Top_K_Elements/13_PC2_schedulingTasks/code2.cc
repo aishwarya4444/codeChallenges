@@ -15,15 +15,13 @@ public:
         }
 
         while(maxHeap.size()) {
-            for(time=1; time<=n+1 && maxHeap.size(); time++) {
+            for(time=0; time<=n && maxHeap.size(); time++) {
                 freq = maxHeap.top();
                 maxHeap.pop();
                 if(freq>1) {
                     q.push(freq-1);
                 }
             }
-
-            time--;
 
             if(q.size()) {
                 res = res+n+1;

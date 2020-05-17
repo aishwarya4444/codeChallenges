@@ -6,6 +6,8 @@ using namespace std;
 #include <queue>
 #include <vector>
 
+// https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
+
 class LargestPairs {
  public:
   struct sumCompare {
