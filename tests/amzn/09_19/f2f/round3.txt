@@ -1,0 +1,11 @@
+Part1:
+Past experience.
+Kind of work that I have done.
+Drill down in my recent work.
+Any feature that I would incorporate if I were a PM? Why that feature.
+
+Part2:
+Design PVR cinemas.
+Started with a simple use case that user logs in/ searches for movie/ books a ticket.
+On whiteboard, I started drawing diagram of various parts of system.
+Then I was asked about low level design, how would the database look like.
