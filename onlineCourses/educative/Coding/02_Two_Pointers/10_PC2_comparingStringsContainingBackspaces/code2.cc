@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/backspace-string-compare/
 class Solution {
 public:
     string build(string &s) {
@@ -18,6 +19,6 @@ public:
     }
     bool backspaceCompare(string S, string T) {
         string s=build(S), t=build(T);
-        return s.compare(t) ==0;
+        return s==t;
     }
 };

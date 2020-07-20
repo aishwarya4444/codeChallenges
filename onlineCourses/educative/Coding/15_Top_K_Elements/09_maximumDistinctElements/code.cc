@@ -7,6 +7,8 @@ using namespace std;
 #include <unordered_map>
 #include <vector>
 
+// https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/
+
 class MaximumDistinctElements {
   public:
     struct compareGreater {

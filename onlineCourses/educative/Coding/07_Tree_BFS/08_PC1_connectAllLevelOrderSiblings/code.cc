@@ -39,17 +39,14 @@ class ConnectAllSiblings {
       q.push(root);
     }
     while(q.size()) {
-      n=q.size();
-      while(n--) {
-        root=q.front();
-        q.pop();
-        if(prev) {
-          prev->next=root;
-        }
-        prev=root;
-        if(root->left)q.push(root->left);
-        if(root->right)q.push(root->right);
+      root=q.front();
+      q.pop();
+      if(prev) {
+        prev->next=root;
       }
+      prev=root;
+      if(root->left)q.push(root->left);
+      if(root->right)q.push(root->right);
     }
   }
 };
