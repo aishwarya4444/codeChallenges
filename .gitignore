@@ -10,4 +10,4 @@ test/
 .project
 .vscode
 .settings
-
+*.class
