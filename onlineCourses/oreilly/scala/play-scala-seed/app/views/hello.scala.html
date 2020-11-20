@@ -1,5 +1,9 @@
-@()
+@(name: String)
 
 @main("Hello Page") {
-    <h1>Hello!</h1>
+    @if(name == null) {
+        <h1>Hello!</h1>
+    } else {
+        <h1>Hello @name!</h1>
+    }
 }

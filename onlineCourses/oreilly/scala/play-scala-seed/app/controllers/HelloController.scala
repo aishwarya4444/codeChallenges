@@ -5,6 +5,10 @@ import javax.inject._
 
 class HelloController @Inject()(val controllerComponents: ControllerComponents) extends BaseController{
   def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.hello())
+    Ok(views.html.hello(null))
+  }
+
+  def wishByName(name: String) = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.hello(name))
   }
 }
