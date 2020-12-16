@@ -1,0 +1,15 @@
+https://github.com/knakul853/competitive_programming
+
+https://www.geeksforgeeks.org/birthday-paradox/
+https://www.geeksforgeeks.org/biginteger-class-in-java/
+http://theoryofprogramming.com/2014/12/24/modular-arithmetic-properties/
+https://practice.geeksforgeeks.org/problems/factorials-of-large-numbers/0
+https://www.geeksforgeeks.org/matrix-exponentiation/
+https://www.hackerearth.com/practice/notes/solving-linear-recurrence-relation/
+https://www.geeksforgeeks.org/program-nth-catalan-number/
+https://www.geeksforgeeks.org/applications-of-catalan-numbers/
+http://zobayer.blogspot.com/2010/11/matrix-exponentiation.html ------------
+https://community.topcoder.com/tc?module=Static&d1=features&d2=010408
+https://codeforces.com/blog/entry/67776
+https://www.hackerearth.com/practice/notes/matrix-exponentiation-1/
+http://fusharblog.com/solving-linear-recurrence-for-programming-contest/
