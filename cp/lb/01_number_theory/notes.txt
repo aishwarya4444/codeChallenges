@@ -17,3 +17,10 @@ http://fusharblog.com/solving-linear-recurrence-for-programming-contest/
 Pigeonhole Principle
 https://www.geeksforgeeks.org/discrete-mathematics-the-pigeonhole-principle/
 https://brilliant.org/wiki/pigeonhole-principle-definition/#
+
+Binomial Coefficients / Combinatorics
+https://www.geeksforgeeks.org/space-and-time-efficient-binomial-coefficient/
+https://www.geeksforgeeks.org/binomial-coefficient-dp-9/
+https://www.careerbless.com/aptitude/qa/permutations_combinations_imp11.php
+https://cp-algorithms.com/combinatorics/stars_and_bars.html
+
