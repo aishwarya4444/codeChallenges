@@ -1,0 +1,29 @@
+https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
+https://www.youtube.com/watch?v=yB57bcffJo4
+^^ sieve of eratosthenes
+https://www.youtube.com/watch?v=fByR5N-TseY
+^^ segmented sieve
+
+https://cp-algorithms.com/algebra/euclid-algorithm.html
+https://cp-algorithms.com/algebra/extended-euclid-algorithm.html
+https://cp-algorithms.com/algebra/linear-diophantine-equation.html
+
+https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/
+https://cp-algorithms.com/algebra/module-inverse.html
+
+coding blocks - number theory revision : https://www.youtube.com/watch?v=vPum8EqmFz0
+Euler Phi / Toutient ^^^ 50:20 onwards
+crt ^^^ 1:20:00 onwards
+
+https://www.geeksforgeeks.org/wilsons-theorem/
+https://cp-algorithms.com/algebra/factorial-modulo.html
+https://www.hackerearth.com/practice/notes/wilsons-theorem/
+
+https://cp-algorithms.com/combinatorics/binomial-coefficients.html
+https://www.hackerearth.com/practice/notes/lucas-theorem-wilsons-theorem/
+https://www.hackerearth.com/practice/notes/ncr-mod-mod-lucas-theorem/
+
+fermat : https://www.youtube.com/watch?v=aGjfSTr_0AE
+https://cp-algorithms.com/algebra/primality_tests.html
+^^^ miller rabin and fermat
+https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
