@@ -29,3 +29,28 @@ class HappyNumber {
         System.out.println(HappyNumber.find(12));
     }
 }
+
+/*
+https://leetcode.com/problems/happy-number/
+class Solution {
+    public int add(int num) {
+        int sum=0;
+        while(num>0) {
+            sum += (num%10)*(num%10);
+            num /= 10;
+        }
+        return sum;
+    }
+
+    public boolean isHappy(int n) {
+        int slow=n, fast=n;
+
+        do {
+            slow = add(slow);
+            fast = add(add(fast));
+        } while(slow!=fast);
+
+        return slow==1;
+    }
+}
+* */
