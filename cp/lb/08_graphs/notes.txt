@@ -1,0 +1,7 @@
+SCC = strongly connected components -> only for directed graphs
+CC = connected components -> only for un-directed graphs
+
+
+
+article for explaining articulation point in different manner
+https://codeforces.com/blog/entry/68138
