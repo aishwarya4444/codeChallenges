@@ -1,7 +1,11 @@
-SCC = strongly connected components -> only for directed graphs
-CC = connected components -> only for un-directed graphs
+SCC
+strongly connected components
+for directed graphs
 
-
+CC
+connected components
+biconnectivity in undirected graphs
+for undirected graphs
 
 article for explaining articulation point in different manner
 https://codeforces.com/blog/entry/68138
