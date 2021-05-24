@@ -27,3 +27,7 @@ fermat : https://www.youtube.com/watch?v=aGjfSTr_0AE
 https://cp-algorithms.com/algebra/primality_tests.html
 ^^^ miller rabin and fermat
 https://www.geeksforgeeks.org/primality-test-set-3-miller-rabin/
+
+
+good problems for number theory contest
+https://codeforces.com/blog/entry/79107
