@@ -1,4 +1,7 @@
 /*
+
+https://www.codechef.com/INOIPRAC/problems/INOI1301
+
 Calvin wakes up early one morning and finds that all his friends in the hostel are asleep.
 To amuse himself, he decides to play the following game :
     He draws a sequence of N squares on the ground, numbered 1 to N, and writes an integer in each square.
@@ -44,6 +47,45 @@ Sample Output
 #define ll long long
 using namespace std;
 
+int a[200003];
+ll dpf[200003];
+ll dpb[200003];
+
+int main() {
+	int n, k;
+	ll res = 0;
+
+	cin>>n>>k;
+
+	for(int i=1; i<=n; i++) {
+		cin>>a[i];
+	}
+
+	for(int i=k+1; i<=n; i++) {
+		dpf[i] = a[i]+max(dpf[i-1], dpf[i-2]);
+	}
+
+	dpb[1] = a[1];
+	dpb[2] = a[1]+a[2];
+	for(int i=3; i<=n; i++) {
+		dpb[i] = a[i]+max(dpb[i-1], dpb[i-2]);
+	}
+
+	for(int i=k; i<=n; i++) {
+		res = max(res, dpf[i]+dpb[i]-a[i]);
+	}
+
+	cout<<res;
+
+	return 0;
+}
+
+/*
+// WA as position from where return happened was included twice
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
 int a[200001];
 ll dp[200001];
 
@@ -71,3 +113,4 @@ int main() {
 
 	return 0;
 }
+*/

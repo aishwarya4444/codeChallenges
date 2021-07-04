@@ -1,4 +1,7 @@
 /*
+
+https://www.codechef.com/problems/JCWC00
+
 Agarwal has a habit of creating Ajeeb Samasya as usual and Shubham always comes to his rescue.
 This is time he has created another samasya which is as follows.
 Read carefully! Shubham has an array of N integers and an integer K.
