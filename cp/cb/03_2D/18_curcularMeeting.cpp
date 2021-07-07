@@ -1,7 +1,9 @@
 /*
 
 https://www.codechef.com/JULY19B/problems/CIRMERGE
+
 similar : https://codeforces.com/problemset/problem/1372/D
+https://codeforces.com/contest/1372/submission/100452803
 
 my solution less memory / more time (used inline function to avoid TLE) = https://www.codechef.com/viewsolution/48517184
 my solution more memory / less time = https://www.codechef.com/viewsolution/48517610
