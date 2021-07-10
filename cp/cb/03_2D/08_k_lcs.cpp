@@ -1,4 +1,7 @@
 /*
+
+https://www.hackerearth.com/problem/algorithm/mancunian-and-k-ordered-lcs-e6a4b8c6/
+
 Any programmer worth his salt would be familiar with the famous Longest Common Subsequence problem.
 Mancunian was asked to solve the same by an incompetent programmer. As expected, he solved it in a flash.
 To complicate matters, a twist was introduced in the problem.
