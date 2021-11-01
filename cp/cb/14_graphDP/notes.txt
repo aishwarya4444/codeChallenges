@@ -1,0 +1,6 @@
+For DAG i.e. "Directed Acyclic Graph" - we can think of topological order
+Any "Directed Cyclic Graph" can be converted to DAG using Kosaraju Algorithm
+
+When we talk about DP, some order has to be there.
+So, Directed Cyclic Graph has to be converted to DAG.
+Bitmasking can be used if number of nodes is less.
