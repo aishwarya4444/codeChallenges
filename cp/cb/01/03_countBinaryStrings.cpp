@@ -21,6 +21,51 @@ Explanation
 1st test case : 00, 01, 10 2nd test case : 000, 001, 010, 100, 101
 */
 
+// https://leetcode.com/discuss/general-discussion/1287402/count-number-of-binary-strings-without-consecutive-1s
+// shortcut is fibonacci
+
+// top down
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+ll dp[91][2];
+
+ll solve(int pos, int ones, int n) {
+	if(ones==2) return 0;
+	if(pos==n) return 1;
+
+	if(dp[pos][ones] != -1) {
+		return dp[pos][ones];
+	}
+
+	ll ans = 0;
+	// keep 0 at current place
+	ans += solve(pos+1, 0, n);
+	// keep 1 at current place
+	ans += solve(pos+1, ones+1, n);
+
+	return dp[pos][ones] = ans;
+}
+
+int main() {
+	int t, n;
+
+	cin>>t;
+
+	while(t--) {
+		cin>>n;
+
+		memset(dp, -1, sizeof dp);
+
+		cout<<solve(0, 0, n)<<endl;
+	}
+
+	return 0;
+}
+
+// bottom up
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;

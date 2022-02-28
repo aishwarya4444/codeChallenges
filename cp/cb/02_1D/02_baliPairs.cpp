@@ -44,6 +44,57 @@ The two ways are {1,4} and {2,3}.
 using namespace std;
 
 const int mod = 1e9+7;
+int n, l, r;
+int p[100001][2];
+
+// important thing to understand is that we do not need entire sum
+// we just need to know if sum is odd or even
+int dp[100001][2];
+
+int solve(int pos, int sum) {
+	if(pos==n) {
+		// sum will be 0 or 1
+		return sum;
+	}
+
+	if(dp[pos][sum] != -1) {
+		return dp[pos][sum];
+	}
+
+	ll ans = 0;
+	ans += solve(pos+1, (sum+p[pos][0])%2);
+	ans += solve(pos+1, (sum+p[pos][1])%2);
+
+	return dp[pos][sum] = ans%mod;
+}
+
+int main() {
+	int t=1;
+
+	// taking number of test cases for codechef problem
+	// cin>>t;
+	while(t--) {
+		memset(dp, -1, sizeof dp);
+		cin>>n;
+		for(int i=0; i<n; i++) {
+			cin>>l>>r;
+			p[i][0] = l%2;
+			p[i][1] = r%2;
+		}
+		cout<<solve(0, 0)<<endl;
+	}
+
+	return 0;
+}
+
+/*
+// found below from tutorial video
+// but did not understand much
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+const int mod = 1e9+7;
 
 int main() {
 	int n, l, r, prod=1;
@@ -59,9 +110,12 @@ int main() {
 
 	return 0;
 }
+*/
 
 /*
 // TLE below solution
+// important thing to understand is that we do not need entire sum
+// we just need to know if sum is odd or even
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;

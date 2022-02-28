@@ -24,7 +24,7 @@ using namespace std;
 
 int a[100001];
 ll dp[100001];
-int N;
+// int N;
 
 ll solve(int n) {
     if(n==0) return 0;
@@ -35,10 +35,10 @@ ll solve(int n) {
 
     ll cost = 0;
 
-    for(int i=1; i<=N; i++) {
-        if(n>=i) {
+    for(int i=1; i<=n; i++) {
+        // if(n>=i) {
             cost = max(cost, a[i]+solve(n-i));
-        }
+        // }
     }
 
     return dp[n] = cost;
@@ -48,7 +48,7 @@ int main() {
     int n;
 
     cin>>n;
-    N = n;
+    // N = n;
 
     for(int i=1; i<=n; i++) {
         cin>>a[i];

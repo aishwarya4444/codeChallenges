@@ -18,7 +18,7 @@ Constraints
 1<=N<=10^4 1<=K<=10^4 0<=xi<=1
 
 Output Format
-Output a single integer denoting the number of ways to finish the game modulo (109+7).
+Output a single integer denoting the number of ways to finish the game modulo (10^9+7).
 
 Sample Input
 5 2
@@ -79,6 +79,24 @@ ll bottomUp() {
 	return dp[n];
 }
 
+ll solve(int pos) {
+	// check snake first as last index can have and we will not reach it
+	if(snake[pos]) return 0;
+	if(pos==n) return 1;
+
+	if(dp[pos] != -1) {
+		return dp[pos];
+	}
+
+	ll ans = 0;
+	for(int step=1; step<=k; step++) {
+		if(pos+step>n) break;
+		ans = (ans + solve(pos+step)) % mod;
+	}
+
+	return dp[pos] = ans;
+}
+
 int main() {
 	cin>>n>>k;
 
@@ -87,7 +105,10 @@ int main() {
     }
 
     // cout<<dfs(n);
-    cout<<bottomUp();
+    // cout<<bottomUp();
+
+    memset(dp, -1, sizeof dp);
+    cout<<solve(1);
 
     return 0;
 }

@@ -43,6 +43,54 @@ Sample Output
 11
 */
 
+// codechef accepted
+// SIGSEV i got initially because more memory was needed and i gave less
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int a[1000001];
+ll foreward[1000001];
+ll backward[1000001];
+
+int main() {
+	int n, k;
+	ll ans;
+
+	cin>>n>>k;
+
+	for(int i=1; i<=n; i++) {
+		cin>>a[i];
+	}
+
+	// just like fibonacci
+	// set initial 2 cases .. and then calculate rest
+	foreward[k] = 0;
+	foreward[k+1] = a[k+1];
+	for(int i=k+2; i<=n; i++) {
+		foreward[i] = a[i]+max(foreward[i-1], foreward[i-2]);
+	}
+
+	// just like fibonacci
+    // set initial 2 cases .. and then calculate rest
+    backward[1] = a[1];
+	backward[2] = a[1] + a[2];
+	for(int i=3; i<=n; i++) {
+		backward[i] = a[i] + max(backward[i-1], backward[i-2]);
+	}
+
+	// current term is subtracted
+	ans = foreward[k]+backward[k]-a[k];
+	for(int i=k+1; i<=n; i++) {
+		ans = max(ans, foreward[i]+backward[i]-a[i]);
+	}
+
+	cout<<ans;
+
+	return 0;
+}
+
+// coding blocks accepted
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;

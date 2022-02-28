@@ -19,7 +19,7 @@ int main() {
         for(c=1; c<=C; c++) {
             cin>>dp[r][c];
             if(dp[r][c]) {
-                dp[r][c] = max(dp[r][c], 1+min({dp[r-1][c], dp[r-1][c-1], dp[r][c-1]}));
+                dp[r][c] = 1+min({dp[r-1][c], dp[r-1][c-1], dp[r][c-1]});
             }
             res = max(res, dp[r][c]);
         }

@@ -50,9 +50,10 @@ int main() {
     for(int l=n-2; l>=0; l--) {
         for(int r=l+1; r<n; r++) {
             if(color[l]==color[r]) {
-                if(r-l != 1) {
+                // if(r-l != 1) {
                     dp[l][r] = 1+dp[l+1][r-1];
-                }
+                // }
+                // we know that consecutive elements cannot be same .. so we can remove this check
             } else {
                 dp[l][r] = 1+min(dp[l+1][r], dp[l][r-1]);
             }

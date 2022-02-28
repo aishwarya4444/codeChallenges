@@ -47,7 +47,7 @@ using namespace std;
 
 int num[17001];
 ll sum[17001];
-// int dp[17001][17001];
+ int dp[17001][17001];
 // map<pair<int,int>, int > dp;
 // this big array we cannot use
 // there are no overlapping subproblems
@@ -61,9 +61,9 @@ int solve(int l, int r) {
         return 0;
     }
 
-   // if(dp[l][r] != -1) {
-   //     return dp[l][r];
-   // }
+    if(dp[l][r] != -1) {
+        return dp[l][r];
+    }
 
     int ways = 0;
     for(int k=l+1; k<=r; k++) {
@@ -74,7 +74,7 @@ int solve(int l, int r) {
         }
     }
 
-    return ways;
+    return dp[l][r] = ways;
 
    // return dp[l][r]==-1 ? 0 : dp[l][r];
 }

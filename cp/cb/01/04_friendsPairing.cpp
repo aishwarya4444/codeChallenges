@@ -25,6 +25,8 @@ Explanation
 Note that {1,2} and {2,1} are considered same.
 */
 
+// https://www.youtube.com/watch?v=SHDu0Ufjyk8
+
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;

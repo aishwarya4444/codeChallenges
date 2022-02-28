@@ -32,7 +32,61 @@ Then Nimit can pick either 1 or 3.
 In both the cases piyush picks coin 2 and wins with a total of 6.
 */
 
-// Top - Down
+// top down 1
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+vector<int> a;
+int n;
+ll dp[30][30][2];
+
+ll solve(int i, int j, int player) {
+    if(i>j) {
+        return 0;
+    }
+
+    if(dp[i][j][player]!=-1) {
+        return dp[i][j][player];
+    }
+
+    ll op1, op2, ans;
+    if(player==0) {
+    	// Piyush picks a[i] or a[j] and turn goes to Nimit
+    	// value which is picked is counted in Piyush's score
+    	op1 = a[i] + solve(i+1, j, 1);
+    	op2 = a[j] + solve(i, j-1, 1);
+    	ans = max(op1, op2);
+    } else {
+    	// Nimit picks a[i] or a[j] and turn goes to Piyush
+    	// value picked is not counted in Piyush's score
+    	op1 = solve(i+1, j, 0);
+    	op2 = solve(i, j-1, 0);
+    	ans = min(op1, op2);
+    }
+
+    return dp[i][j][player] = ans;
+}
+
+int main() {
+    int val;
+
+    cin>>n;
+
+    memset(dp, -1, sizeof(dp));
+
+    for(int i=1; i<=n; i++) {
+        cin>>val;
+        a.push_back(val);
+    }
+
+    cout<<solve(0, n-1, 0);
+
+    return 0;
+
+}
+
+// Top - Down 2
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;

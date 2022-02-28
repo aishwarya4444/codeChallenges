@@ -17,7 +17,8 @@ Line 1: A single integer N, the number of games in the IPL season.
 Line 2: N non-negative integers, where the integer in position i represents the fee for match i.
 
 Constraints
-N < 1000000 a[i] < 1000
+N < 1000000
+a[i] < 1000
 
 Output Format
 The output consists of a single non-negative integer, the maximum amount of money that Nikhil can earn during this IPL season.
@@ -31,6 +32,49 @@ Explanation
 (Explanation: 3+3+3+5+3)
 */
 
+// top down
+// not working in coding blocks because MLE
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+ll a[1000001];
+ll dp[1000001][3];
+int n;
+
+ll solve(int pos, int matches) {
+	// return -a[pos-1] also works
+	// we just dont want to add the previous match cost
+	if(matches==3) return INT_MIN;
+	if(pos==n) return 0;
+
+	if(dp[pos][matches] != -1) {
+		return dp[pos][matches];
+	}
+
+	ll choice1 = 0, choice2 = 0;
+	// do not play this match
+	choice1 = solve(pos+1, 0);
+	// play this match
+	choice2 = solve(pos+1, matches+1) + a[pos];
+
+	return dp[pos][matches] = max(choice1, choice2);
+}
+
+int main() {
+	cin>>n;
+
+	for(int i=0; i<n; i++) {
+		cin>>a[i];
+	}
+
+	memset(dp, -1, sizeof dp);
+	cout<<solve(0, 0);
+
+	return 0;
+}
+
+// bottom up
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;

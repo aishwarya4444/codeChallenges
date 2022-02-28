@@ -29,9 +29,12 @@ Sample Output
 using namespace std;
 
 unordered_map<ll, ll> mp;
+// we use map because 10^9 memory is too much
+// using less memory will give SIGSEV
+// using more gives compile error .. but runs locally if we do not memset(dp, -1, sizeof dp) as 10^9 ops are not done
 
 ll solve(ll n) {
-    if(n<2) {
+    if(n<=8) { // n<2 also works
         return n;
     }
 
@@ -39,16 +42,17 @@ ll solve(ll n) {
         return mp[n];
     }
 
-    mp[n] = max(n, solve(n/2)+solve(n/3)+solve(n/4));
+    ll ans = max(n, solve(n/2)+solve(n/3)+solve(n/4));
 
-    return mp[n];
+    return mp[n] = ans;
 }
 
 int main() {
     ll n;
-    cin>>n;
-    cout<<solve(n);
+    while(cin>>n)
+        cout<<solve(n)<<endl;
 }
+
 // ll dp[1000000001];
 
 // int main() {

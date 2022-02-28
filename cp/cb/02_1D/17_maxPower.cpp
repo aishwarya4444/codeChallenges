@@ -51,3 +51,36 @@ int main() {
     return 0;
 
 }
+
+
+// less memory
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int N=nums.size(), n;
+        int minNeg, maxPos, ans;
+
+        if(nums[0]>0) {
+            maxPos = nums[0];
+            minNeg = 0;
+        } else {
+            maxPos = 0;
+            minNeg = nums[0];
+        }
+        ans = nums[0];
+
+        for(n=1; n<N; n++) {
+            if(nums[n]>0) {
+                maxPos = max(nums[n], nums[n]*maxPos); // max +ive sum
+                minNeg = nums[n]*minNeg;               // min -ive sum
+            } else {
+                int prevNeg = minNeg, prevPos = maxPos;
+                maxPos = nums[n]*prevNeg;               // max +ive sum
+                minNeg = min(nums[n], nums[n]*prevPos); // min -ive sum
+            }
+            ans = max({ans, maxPos, minNeg});
+        }
+
+        return ans;
+    }
+};

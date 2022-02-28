@@ -32,6 +32,47 @@ Explanation
 (Explanation: 1+1+1+1)
 */
 
+// top down
+// not working in coding blocks because MLE
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+ll a[1000001];
+ll dp[1000001][3];
+int n;
+
+ll solve(int pos, int gap) {
+	if(gap==3) return INT_MAX;
+	if(pos==n) return 0;
+
+	if(dp[pos][gap] != -1) {
+		return dp[pos][gap];
+	}
+
+	ll choice1 = INT_MAX, choice2 = INT_MAX;
+	// skip supw
+	choice1 = solve(pos+1, gap+1);
+	// do supw
+	choice2 = solve(pos+1, 0) + a[pos];
+
+	return dp[pos][gap] = min(choice1, choice2);
+}
+
+int main() {
+	cin>>n;
+
+	for(int i=0; i<n; i++) {
+		cin>>a[i];
+	}
+
+	memset(dp, -1, sizeof dp);
+	cout<<solve(0, 0);
+
+	return 0;
+}
+
+// bottom up
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
