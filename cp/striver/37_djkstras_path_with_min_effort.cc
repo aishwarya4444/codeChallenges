@@ -18,7 +18,7 @@ class Solution {
             auto node = pq.top(); pq.pop();
             int e = node[0], r = node[1], c = node[2];
 
-            //if(r==R-1 && c==C-1) return e;
+            if(r==R-1 && c==C-1) return e;
             for(auto dir: dirs) {
                 int row = r+dir[0], col = c+dir[1];
                 if(row>=0 && row<R && col>=0 && col<C) {
@@ -31,6 +31,6 @@ class Solution {
             }
         }
 
-        return effort[R-1][C-1];
+        return -1; // not reachable
     }
 };
