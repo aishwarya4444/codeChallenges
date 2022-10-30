@@ -7,6 +7,8 @@ because we have to consider stops here
 
 it can happen that our intermediary stop is updated with small price
 and because of it we are unable to reach destination because "K" stops are consumed before
+
+bellman ford = slight variation of djkstras
 */
 
 class Solution {
