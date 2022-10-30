@@ -1,6 +1,8 @@
 /*
 https://practice.geeksforgeeks.org/problems/path-with-minimum-effort/1
 https://leetcode.com/problems/path-with-minimum-effort/
+
+bellman ford = slight variation of djkstras
 */
 
 class Solution {
