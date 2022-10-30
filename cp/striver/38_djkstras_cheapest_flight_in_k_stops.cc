@@ -23,6 +23,8 @@ public:
             gr[u].push_back({v, price});
         }
 
+        // TC = E = flights.size()
+
         q.push({-1, 0, src}); // stops, price, flight
         while(q.size()) {
             auto node = q.front(); q.pop();

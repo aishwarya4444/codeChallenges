@@ -12,6 +12,8 @@ class Solution {
         vector<vi> effort(R, vi(C, 1e9));
         vector<vi> dirs = {{0,-1}, {0,1}, {1,0}, {-1,0}};
 
+        // TC = E log V = 4RC log RC
+
         effort[0][0] = 0;
         pq.push({0, 0, 0});
         while(pq.size()) {
