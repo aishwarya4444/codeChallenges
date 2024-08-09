@@ -1,0 +1,126 @@
+[1]
+work ex
+
+[2]
+add 2 LL .. numbers are reversed
+#include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+struct ListNode {
+    int digit;
+    ListNode *next;
+    ListNode(int _digit) {
+        digit = _digit;
+        next = NULL;
+    }
+};
+
+ListNode *addLists(ListNode *l1, ListNode *l2) {
+    ListNode *head=NULL, *tail;
+    int sum, carry=0;
+
+    while(l1 || l2) {
+        sum = carry;
+        if(l1) {
+            sum += l1->digit;
+            l1 = l1->next;
+        }
+        if(l2) {
+            sum += l2->digit;
+            l2 = l2->next;
+        }
+        if(head == NULL) {
+            head = new ListNode(sum%10);
+            tail = head;
+        } else {
+            tail->next = new ListNode(sum%10);
+            tail = tail->next;
+        }
+        carry = sum/10;
+    }
+    if(carry) {
+        tail->next = new ListNode(carry);
+    }
+    return head;
+}
+
+void printList(ListNode *head) {
+    while(head) {
+        cout<<head->digit<<" ";
+        head = head->next;
+    }
+    cout<<endl;
+}
+
+ListNode *createList(vector<int> &nums) {
+    ListNode *head=NULL, *tail;
+    for(int num: nums) {
+        if(head == NULL) {
+            head = new ListNode(num);
+            tail = head;
+        } else {
+            tail->next = new ListNode(num);
+            tail = tail->next;
+        }
+
+    }
+    return head;
+}
+
+int main() {
+    // you can write to stdout for debugging purposes, e.g.
+    std::cout << "This is a debug message" << std::endl;
+    // list 1
+    vector<int> nums1 = {2, 4, 3};
+
+    // list 2
+    vector<int> nums2 = {5, 6, 4};
+
+    ListNode *ans = addLists(createList(nums1), createList(nums2));
+
+    printList(ans);
+
+    return 0;
+}
+
+[3]
+given a string .. what is the maximum length of palindrome that can be made using its characters
+
+public class MaxPalindromeLength {
+    public static int maxPalindromeLength(String s) {
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
+
+        // Count frequency of each character
+        int[] charCount = new int[256];  // Assuming ASCII characters
+        for (char c : s.toCharArray()) {
+            charCount[c]++;
+        }
+
+        // Count characters with odd frequency
+        int oddCount = 0;
+        for (int count : charCount) {
+            if (count % 2 != 0) {
+                oddCount++;
+            }
+        }
+
+        // Calculate max palindrome length
+        if (oddCount <= 1) {
+            return s.length();
+        } else {
+            return s.length() - oddCount + 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        String s1 = "aabb";
+        System.out.println("Max palindrome length for '" + s1 + "': " + maxPalindromeLength(s1));
+
+        String s2 = "aabbc";
+        System.out.println("Max palindrome length for '" + s2 + "': " + maxPalindromeLength(s2));
+    }
+}

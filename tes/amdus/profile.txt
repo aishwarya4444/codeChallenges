@@ -1,0 +1,29 @@
+https://www.linkedin.com/in/pradeep-km/?originalSubdomain=in
+
+Java|Microservices|Spring|Docker|Kubernetes|RestAPIs|OpenAPIs|Azure Cloud|JMS|Design Patterns|Oauth|OIDC|JPA|Oracle
+
+Expert Software Engineer\Technical Architect leading a team, over 12.5 relevant years of experience in Banking Domain on transaction, mortgages and Online Banking. Involved in requirements elicitation, design, development and implementation of technology solutions. Responsible for building a team from scratch and accountability of end-to-end project delivery
+
+
+- Led a team for OpenAPIs design and development, hosted on Fusion Fabric Cloud platform under Corporate Banking
+ - As a Technical Lead of OpenAPI platform, involved in PI planning and roadmap to provide development estimates
+ - Upskilled team to adopt BDD process for API development, handled presentation across organization on FFDC platform usage
+ - Implement Oauth 2.0 security with OpenID connect for authentication and authorization
+ - Make sure Swagger and APIs pass Swagger Validator, Payload Checker, Postman test cases checks in CI/CD before publishing
+ - Co-ordinate with Performance team for load testing to get the approval and meet the KPIs defined
+ - Fix the security issues identified during DAST testing, Checkmarx scan
+ - Co-ordinate with DevOps for promotion of API Swagger, Postman and application build from dev to prod env
+ - Technical Point of Contact for Fintech to publish apps on FFDC platform store
+ - Work closely with product management for Swagger documentation finalizing API contracts
+ - Involve in design documentation of breaking monolith to microservices
+ - Follow Microservices Design Pattern to incrementally transform monolithic into microservices
+ - Completion of POC for finalizing design and tech stack
+ - Multi-tenancy support, separation of tenant data and configuration using Spring Cloud Config Server
+ - Reuse the capabilities of Fusion Operate platform for monitoring, tracing and logging
+ - Hands-on experience in CI/CD development environments/tools: Git, Maven, Azure pipeline
+ - Co-ordination with DevOps to run BDD test cases, code coverage and quality gates like Sonar, Checkmarx and WhiteSource
+• Brought innovation into FCC through various initiatives
+ - Led a team of 4 for the POC of Chat-bot feature to Fusion Corporate Channels product
+Adopted Behaviour-Driven Development (BDD) process for API development using Cucumber framework
+ - Re-design the web-based architecture to RESTful API based architecture
+ - Participate in developing strategies to improve API development life cycle and governance processes

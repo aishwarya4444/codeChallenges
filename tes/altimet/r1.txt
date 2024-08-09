@@ -1,0 +1,61 @@
+[1]
+public class Employee {
+        int salary;
+        int id;
+        String name;
+        String department;
+    }
+
+List<Employee> diya hai .. stream use kar k .. department wise max salary dena hai
+
+ye na ho paya humse
+
+Ans
+https://github.com/aishwarya4444/ud-java/blob/main/src/main/java/org/study/com/language/MyStreams.java#L219
+        List<Employee> employees = Arrays.asList(
+                new Employee(60000, 1, "Alice", "HR"),
+                new Employee(70000, 2, "Bob", "IT"),
+                new Employee(55000, 3, "Charlie", "HR"),
+                new Employee(80000, 4, "David", "IT"),
+                new Employee(65000, 5, "Eve", "Finance"),
+                new Employee(75000, 6, "Frank", "Finance"),
+                new Employee(90000, 7, "Grace", "IT"),
+                new Employee(50000, 8, "Henry", "HR")
+        );
+
+        // way 1
+        Map<String, Integer> maxSalaryByDepartment = employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment,
+                Collectors.collectingAndThen(
+                    Collectors.maxBy(Comparator.comparingInt(Employee::getSalary)),
+                    optionalEmployee -> optionalEmployee.map(Employee::getSalary).orElse(0)
+                )
+            ));
+
+        // Iterate over the map and print the results
+        for (Map.Entry<String, Integer> entry : maxSalaryByDepartment.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // way 2
+        employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment,
+                Collectors.collectingAndThen(
+                    Collectors.maxBy(Comparator.comparingInt(Employee::getSalary)),
+                    optionalEmployee -> optionalEmployee.map(Employee::getSalary).orElse(0)
+                )
+            ))
+            .forEach((department, maxSalary) ->
+                System.out.println(department + ": " + maxSalary));
+
+
+[2] GC kaise hota hai .. kaise set karoge java mein
+
+[3] multithreading kaise hota hai .. bata diya runnable aur run etc .. fir poochta hai production mein kaise karoge .. humne bola nai dekhe hain
+
+[4] java mein lambda function kyu dala .. kya advantages aur disadvantages hain .. humne kaha functional programming introduce karna tha java mein .. benefits etc nai pata
+
+[5] concurrent hashmap kya hai .. bata diye
+fir poocha hashmap ko kaise karo concurrent  .. hune kaha synchronized ya shared Object lock kar k .. bola nai .. aur kuch batao .. nai bata paye .. fir kaha ki Collections, karke kuch use kar sakte hain

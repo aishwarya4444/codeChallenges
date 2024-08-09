@@ -1,0 +1,39 @@
+currently seeking a Principal Engineer to be a part of the Enlighten development team.
+
+What you will do:
+
+·   Design and implement scalable, performant applications
+
+·   Ability to design, code and maintain standards compliant APIs
+
+·   Ability to debug complex applications
+
+·   Follow agile processes and deliver products with high complexity and surface area
+
+·   Responsible for delivering feature changes and additions to systems handling millions of requests per day
+
+·   Consistent high-quality delivery schedule
+
+·   Ability to work on a fast-paced environment
+
+·   Ownership of features and components from concept, design, development, deployment and finally deprecation
+
+Who you are and what you bring:
+
+·   B.E/B.Tech in Computer Science or Electrical Engineering
+
+·   15+ years of solid software development experience
+
+·   Preferably a polyglot programmer who can code in at least 2 high-level languages (Java / Ruby / Python / JS / Go / Elixir)
+
+·   Extensive experience with SQL + NoSQL
+
+·   Expert level development skills in at least one language.
+
+·   Extensive knowledge of at least 1 cloud platform (AWS, Microsoft Azure, GCP) preferably AWS.
+
+·   Experience with IoT based systems preferred
+
+·   Good knowledge and experience with Agile, TDD or BDD methodologies.
+
+·   Strong documentation and communication skills

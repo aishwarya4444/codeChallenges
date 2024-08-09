@@ -1,0 +1,108 @@
+[1]
+wap to find elements whose freq is > 1
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> findFreq(vector<int> &arr) {
+	map<int, int> freq;
+	vector<int> ans;
+
+	for(auto num: arr) {
+		freq[num]++;
+	}
+
+	for(auto entry: freq) {
+		int num = entry.first, cnt = entry.second;
+		if(cnt > 1) ans.push_back(num);
+	}
+	return ans;
+}
+int main()
+{
+	/*
+	int array - 1 2 3 5 7 3 7 8 2 7
+	output - 2 3 7
+	*/
+	int n, num;
+	cin>>n;
+	vector<int> arr;
+	while(n--) {
+		cin>>num;
+		arr.push_back(num);
+	}
+
+	vector<int> res = findFreq(arr);
+	for(int num: res) {
+		cout<<num<<endl;
+	}
+
+}
+
+[2] inheritance and composition
+
+class Parent {
+	void run();
+};
+
+class Child : Parent {
+	void run();
+	void run(int a); // static - overloading
+}
+
+Child c;
+c.run(); // dynamic - overriding
+
+Inhertance - is-a
+class Person{
+	string name;
+}
+class Student : Person {
+	ReportCard rc;
+}
+class Teacher : Person {
+	SalarySlip ss;
+}
+
+
+Composition - has-a
+class School {
+	vector<Student> students;
+}
+
+
+[3] 1 to 100 numbers should be there .. 1 number is duplicated .. what is that number
+xor [ 1 2 2 ... 100 ]
+^
+xor [1,100]
+
+
+[4] license number plates are there
+find next greater palindrome number
+
+131 - 141
+123 - 131
+190 - 191
+192 - 202
+1234 - 1331
+
+5739 - 57 39 - 75 39 - if rev > other half
+5775
+
+9899 - 98 99 - 89 99 - if rev <= other half
+first half ++ + revrse of it
+99 99
+
+
+9999 - 99 99 - 99 99
+first++ + revrse 1 st 2 digits
+10001
+
+11111 - 111 111 - 111 <= 111
+11211
+
+99999 - 999 999 - 999 <= 999
+100001
+
+56098 - 560 098 - 065 < 098
+56165

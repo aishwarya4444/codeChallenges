@@ -1,0 +1,19 @@
+https://leetcode.com/problems/gas-station/description/
+
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int N = gas.size();
+        int totalSum=0, cumSum=0, ans=0;
+        for(int i=0; i<N; i++) {
+          int capacity = gas[i]-cost[i];
+          cumSum += capacity;
+          totalSum += capacity;
+          if(cumSum<0) {
+            cumSum = 0;
+            ans = i+1;
+          }
+        }
+        return totalSum>=0 ? ans : -1;
+    }
+};

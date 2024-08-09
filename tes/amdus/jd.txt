@@ -1,0 +1,104 @@
+Your role would be that of a Principal Software Engineer for the API Hub development team. Key qualities required for the role:
+
+* Excellent Technical knowledge on Java technology with background on development and maintenance part of SDLC
+
+• Good understanding on the API management and prior experience of working on any API gateway
+
+• Excellent Technical knowledge on Java technology frameworks, and cloud architectures
+
+• Mentoring skills for newcomers
+• Good Analytical skills with high levels of curiosity
+• Ability to troubleshoot, debugging and implement solutions quickly
+
+In this role you’ll find a chance to;
+Researching, designing, developing, monitoring and reviewing solutions for
+API Hub scrum teams in PPI train. You’ll:
+• Work as a developer to create and improve the API Hub platform
+• Design and implement required changes over the products
+• Diagnoses and resolves software problems
+• Work on spikes to provide technical inputs for implementing new features
+• Review code and suggest best practices to the team
+• Work with the team to design solutions
+• Produce software documentation necessary for the application
+• Perform troubleshooting on critical issues
+• Attend and give feedback sessions or demos
+• Work on POCs to improve engineering practices
+
+You will be mentoring team members. You’ll:
+• Build team skills by mentoring and knowledge sharing with team members
+• Provides guidance and assistance to junior team members with technical and design
+problems.
+
+You will work with open-source technologies. You should:
+• Stay current with industry trends
+• Help in fostering an innovation culture.
+
+About Ideal Candidate
+To succeed in this position, you need to have relevant experience in the following areas;
+• Minimum 10+ years of professional experience in the area of software development
+• Hands on experience in :
+
+Hand on experience on Core Java and JEE
+Creating Webservices using
+    SOAP JAX-WS
+    REST  JAX-RS
+Spring Framework
+Good knowledge of Hibernate
+Good knowledge of XML, JSON, AJAX
+• Proficient understanding of code versioning tools (Git knowledge in particular).
+Good knowledge on GDB debugger, scripting language (Shell Scripts, Python etc) and
+Linux platform
+• Familiarity with continuous integration.
+• Hands-on experience with automated testing tools.
+• Experience working in an Agile/Scrum development process.
+• Exposure to Design Patterns and Distributed systems is added advantage
+• Experience with GIT
+Any below skill is plus;
+• Experience with microservices, Dockerization, Kubernetes
+• Experience with Jira / Scrum / Agile methodology
+• Excellent communication (oral and written) analytical & problem-solving skills
+• Ability to provide technical guidance to the team
+• Strong team player with a collaborative mindset
+• Innovative thinker within an established framework
+• Good to have knowledge on in travel domain and especially in airline and travel domain
+• Fast and autonomous learner who also understands prioritization
+Having a technical mindset and be eager in learning new technologies whenever required
+and be able to implement using them quickly for Prototyping purposes
+•
+Abilities and soft skills:
+• Clear communicator (written and verbal) with clarity of thought
+• Understand and be curios to learn the SSP Products ecosystem to propose operational
+solutions for customer needs
+• Investigate new technologies, learn new methods and innovation
+• Knowledge of the complete software development lifecycle
+
+Common accountabilities:
+
+- Proficient in technical knowledge to ensure team performs at a high level. Is recognized as a leader in own area and may formally train Specialists/Senior Specialists. ​
+
+- Understands how main business drivers may impact on own area. Can assess complex problems with broad impact on the activity, improve processes, recommend solutions and risk mitigation plans. Able to communicate complex information.​
+
+- Works with a high level of autonomy, based on management directions. Leads projects or contributes to broad cross-functional projects. May contribute to planning of resources and budget.
+
+Specific accountabilities:
+
+Technical Excellence
+Producing code of high quality with high efficiency
+Work in each step of the product development cycle including creating technical requirements, leading complex feasibility studies, project planning, identifying dependencies and improvements
+Investigate, analyze & give recommendations on the root causes of complex software and system defects
+Solving problems / troubleshooting in a timely manner & with a high level of engagement
+Foster applications that are easy to monitor and operate, to improve infrastructure availability
+Apply best practices on code quality and security-safe code through non-functional requirements mastery, code reviews, coding guidelines, unit testing and code refactoring
+Technological Acumen – cross disciplinary knowledge (ex. UI, network…)
+
+Continuous Improvement
+Suggest evolution of the component and make recommendations on how to manage the debt of the code / clean up the code
+Improve the technical aspect of the project delivery and provide recommendations for engineering process improvement
+
+Building cross-functional/technical teams & knowledge sharing
+Work easily with others / ensure smooth communication
+Consistently create successful engagement on projects and collaborate with cross-functional teams in driving operating and service excellence
+Attending to PE community events
+Contribute to the R&D cultural transformation and talent development through team members (junior members) technical coaching and mentoring (give an answer, provide feedback) – reactive is mandatory
+Delivering trainings that have been defined – optional
+Being a Developer advocate (depending on area of influence, going to hackathon, recruitment days, conference, participating to Opensource)

@@ -1,0 +1,280 @@
+https://leetcode.com/discuss/interview-question/4750617/Razorpay-SDE-LLD
+
+The objective is to design and implement an in-memory SQL-like database, which should support the following set of operations/functionality:
+    It should be possible to create, update or delete tables in a database.
+    A table definition comprises columns which have types. They can also have constraints
+    The supported column types are string and int.
+    Users can give the constraint of string type that can have a maximum length of 20 characters.
+    Users can give the constraint of int type that can have a minimum value of 1024.
+    Support for mandatory fields (tagging a column as required)
+    It should be possible to insert records in a table.
+    It should be possible to print all records in a table.
+    It should be possible to filter and display records whose column values match a given value.
+
+
+
+
+import java.util.*;
+
+// Enum for column types
+enum ColumnType {
+    STRING,
+    INT
+}
+
+// Class to represent a column
+class Column {
+    String name;
+    ColumnType type;
+    boolean isRequired;
+    int maxLength;  // for STRING type
+    int minValue;   // for INT type
+
+    public Column(String name, ColumnType type, boolean isRequired) {
+        this.name = name;
+        this.type = type;
+        this.isRequired = isRequired;
+    }
+
+    public void setMaxLength(int maxLength) {
+        if (this.type == ColumnType.STRING) {
+            this.maxLength = maxLength;
+        }
+    }
+
+    public void setMinValue(int minValue) {
+        if (this.type == ColumnType.INT) {
+            this.minValue = minValue;
+        }
+    }
+}
+
+// Class to represent a table
+class Table {
+    String name;
+    List<Column> columns;
+    List<Map<String, Object>> records;
+
+    public Table(String name) {
+        this.name = name;
+        this.columns = new ArrayList<>();
+        this.records = new ArrayList<>();
+    }
+
+    public void addColumn(Column column) {
+        columns.add(column);
+    }
+
+    public void insertRecord(Map<String, Object> record) throws Exception {
+        for (Column column : columns) {
+            Object value = record.get(column.name);
+            if (column.isRequired && value == null) {
+                throw new Exception("Required field " + column.name + " is missing");
+            }
+            if (value != null) {
+                if (column.type == ColumnType.STRING && value instanceof String) {
+                    if (column.maxLength > 0 && ((String) value).length() > column.maxLength) {
+                        throw new Exception("String length exceeds maximum for column " + column.name);
+                    }
+                } else if (column.type == ColumnType.INT && value instanceof Integer) {
+                    if (column.minValue > 0 && (Integer) value < column.minValue) {
+                        throw new Exception("Integer value below minimum for column " + column.name);
+                    }
+                } else {
+                    throw new Exception("Type mismatch for column " + column.name);
+                }
+            }
+        }
+        records.add(record);
+    }
+
+    public void printAllRecords() {
+        for (Map<String, Object> record : records) {
+            System.out.println(record);
+        }
+    }
+
+    public void filterAndPrint(String columnName, Object value) {
+        for (Map<String, Object> record : records) {
+            if (record.get(columnName).equals(value)) {
+                System.out.println(record);
+            }
+        }
+    }
+}
+
+// Class to represent a database
+class Database {
+    private String name;
+    private Map<String, Table> tables;
+
+    public Database(String name) {
+        this.name = name;
+        this.tables = new HashMap<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean createTable(String name) {
+        if (tables.containsKey(name)) {
+            System.out.println("Table '" + name + "' already exists in the database '" + this.name + "'.");
+            return false;
+        } else {
+            tables.put(name, new Table(name));
+            return true;
+        }
+    }
+
+    public boolean deleteTable(String name) {
+        if (tables.containsKey(name)) {
+            tables.remove(name);
+            return true;
+        } else {
+            System.out.println("Table '" + name + "' does not exist in the database '" + this.name + "'.");
+            return false;
+        }
+    }
+
+    public Table getTable(String name) {
+        if (tables.containsKey(name)) {
+            return tables.get(name);
+        } else {
+            System.out.println("Table '" + name + "' does not exist in the database '" + this.name + "'.");
+            return null;
+        }
+    }
+
+    public boolean hasTable(String name) {
+        return tables.containsKey(name);
+    }
+}
+
+// DatabaseManager class as a Singleton to manage multiple databases
+class DatabaseManager {
+    private static DatabaseManager instance = null;
+    private Map<String, Database> databases;
+
+    private DatabaseManager() {
+        this.databases = new HashMap<>();
+    }
+
+    public static synchronized DatabaseManager getInstance() {
+        if (instance == null) {
+            instance = new DatabaseManager();
+        }
+        return instance;
+    }
+
+    public boolean createDatabase(String name) {
+        if (databases.containsKey(name)) {
+            System.out.println("Database '" + name + "' already exists.");
+            return false;
+        } else {
+            databases.put(name, new Database(name));
+            return true;
+        }
+    }
+
+    public boolean deleteDatabase(String name) {
+        if (databases.containsKey(name)) {
+            databases.remove(name);
+            return true;
+        } else {
+            System.out.println("Database '" + name + "' does not exist.");
+            return false;
+        }
+    }
+
+    public Database getDatabase(String name) {
+        if (databases.containsKey(name)) {
+            return databases.get(name);
+        } else {
+            System.out.println("Database '" + name + "' does not exist.");
+            return null;
+        }
+    }
+
+    public boolean hasDatabase(String name) {
+        return databases.containsKey(name);
+    }
+}
+
+// Main class for testing
+public class InMemoryDatabaseSystem {
+    public static void main(String[] args) {
+        DatabaseManager dbManager = DatabaseManager.getInstance();
+
+        // Create databases
+        System.out.println("Creating 'TPS' database:");
+        boolean created = dbManager.createDatabase("TPS");
+        System.out.println("Database created: " + created);
+
+        System.out.println("\nCreating 'TPS_OR' database:");
+        created = dbManager.createDatabase("TPS_OR");
+        System.out.println("Database created: " + created);
+
+        // Get TPS database and create a table
+        Database tpsDb = dbManager.getDatabase("TPS");
+        if (tpsDb != null) {
+            System.out.println("\nCreating 'Users' table in 'TPS' database:");
+            created = tpsDb.createTable("Users");
+            System.out.println("Table created: " + created);
+
+            Table usersTable = tpsDb.getTable("Users");
+            if (usersTable != null) {
+                // Add columns
+                usersTable.addColumn(new Column("id", ColumnType.INT, true));
+                usersTable.addColumn(new Column("name", ColumnType.STRING, true));
+                usersTable.addColumn(new Column("age", ColumnType.INT, false));
+
+                // Set constraints
+                usersTable.columns.get(1).setMaxLength(20);
+                usersTable.columns.get(2).setMinValue(1024);
+
+                try {
+                    // Insert records
+                    Map<String, Object> record1 = new HashMap<>();
+                    record1.put("id", 1);
+                    record1.put("name", "John Doe");
+                    record1.put("age", 1025);
+                    usersTable.insertRecord(record1);
+
+                    Map<String, Object> record2 = new HashMap<>();
+                    record2.put("id", 2);
+                    record2.put("name", "Jane Smith");
+                    record2.put("age", 1030);
+                    usersTable.insertRecord(record2);
+
+                    // Print all records
+                    System.out.println("\nAll records in 'Users' table:");
+                    usersTable.printAllRecords();
+
+                    // Filter and print
+                    System.out.println("\nFiltered records (name = John Doe):");
+                    usersTable.filterAndPrint("name", "John Doe");
+                } catch (Exception e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+            }
+        }
+
+        // Get TPS_OR database and create a table
+        Database tpsOrDb = dbManager.getDatabase("TPS_OR");
+        if (tpsOrDb != null) {
+            System.out.println("\nCreating 'Orders' table in 'TPS_OR' database:");
+            created = tpsOrDb.createTable("Orders");
+            System.out.println("Table created: " + created);
+        }
+
+        // Demonstrate database deletion
+        System.out.println("\nDeleting 'TPS' database:");
+        boolean deleted = dbManager.deleteDatabase("TPS");
+        System.out.println("Database deleted: " + deleted);
+
+        // Check if database exists after deletion
+        System.out.println("\nDoes 'TPS' database exist? " + dbManager.hasDatabase("TPS"));
+        System.out.println("Does 'TPS_OR' database exist? " + dbManager.hasDatabase("TPS_OR"));
+    }
+}
